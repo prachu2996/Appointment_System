@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.authentication.AuthActivity"
+    android:orientation="vertical"
+    android:background="#3333">
+
+    <EditText
+        android:id="@+id/contact_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="50sp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:fadingEdgeLength="?android:attr/actionBarSize"
+        android:hint="+91 Mobile Number"
+        android:maxEms="13"
+        android:padding="20dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"
+        android:text="A 6-Digit Verification Code will be sent via SMS to verify your mobile number." />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
+
+    <EditText
+        android:id="@+id/code_edit_text"
+        style="@android:style/Widget.Material.Light.EditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:ems="10"
+        android:fadingEdgeLength="?android:attr/actionBarSize"
+        android:inputType="textPersonName"
+        android:textColorHint="@android:color/darker_gray"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/verify_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="VERIFY"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/error_textview"
+        android:layout_width="203dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:visibility="invisible"
+        tools:text="There is some error" />
+
+
+
+</LinearLayout>
