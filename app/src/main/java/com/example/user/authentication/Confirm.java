@@ -28,6 +28,9 @@ public class Confirm extends AppCompatActivity {
     private TextView DisplayLocation;
     String DocName = "";
 
+
+    
+
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
