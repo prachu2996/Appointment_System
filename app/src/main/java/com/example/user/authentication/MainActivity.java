@@ -94,11 +94,11 @@ public class MainActivity extends AppCompatActivity {
                                     String user_id = mAuth.getCurrentUser().getUid();
                                     DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("User").child(user_id);
                                     Map newPost = new HashMap();
-                                    newPost.put("Name", name);
-                                    newPost.put("Email", email);
-                                    newPost.put("Dob", dob);
-                                    newPost.put("Mob", mob);
-                                    newPost.put("Gender", gender);
+                                    newPost.put("name", name);
+                                    newPost.put("email", email);
+                                    newPost.put("dob", dob);
+                                    newPost.put("mob", mob);
+                                    newPost.put("gender", gender);
 
 
                                     current_user_db.setValue(newPost);

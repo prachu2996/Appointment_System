@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/MyAccount"
-        android:title="My Account"></item>
+    <item android:id="@+id/MyProfile"
+        android:title="My Profile"></item>
+
+    <item android:id="@+id/MyDoctors"
+        android:title="My Doctors"></item>
+
+    <item android:id="@+id/History"
+        android:title="History"></item>
+
+    <item android:id="@+id/UpComing"
+        android:title="UpComing"></item>
+
+    <item android:id="@+id/Settings"
+        android:title="Setting"></item>
+
+    <item android:id="@+id/FAQ"
+        android:title="FAQ"></item>
+
+    <item android:id="@+id/AboutUs"
+        android:title="About Us"></item>
 
     <item android:id="@+id/Logout"
         android:title="Logout"></item>
+
 
 
 </menu>

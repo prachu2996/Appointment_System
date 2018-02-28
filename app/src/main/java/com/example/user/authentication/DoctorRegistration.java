@@ -77,13 +77,13 @@ public class DoctorRegistration extends AppCompatActivity {
 
                     Map newPost = new HashMap();
                     newPost.put("name", name);
-                    newPost.put("Email", email);
-                    newPost.put("Dob", dob);
-                    newPost.put("Mob", mob);
-                    newPost.put("Gender", gender);
-                    newPost.put("Fees", fees);
-                    newPost.put("Location", location);
-                    newPost.put("Time", time);
+                    newPost.put("email", email);
+                    newPost.put("dob", dob);
+                    newPost.put("mob", mob);
+                    newPost.put("gender", gender);
+                    newPost.put("fees", fees);
+                    newPost.put("location", location);
+                    newPost.put("time", time);
 
                     current_user_db.setValue(newPost);
 

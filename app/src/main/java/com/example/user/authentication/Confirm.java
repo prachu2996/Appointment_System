@@ -26,10 +26,10 @@ public class Confirm extends AppCompatActivity {
     private TextView DisplayName;
     private TextView DisplayFees;
     private TextView DisplayLocation;
-    String DocName = "";
+   // String DocName = "";
 
 
-    
+
 
     private FirebaseAuth mAuth;
     @Override
@@ -40,27 +40,27 @@ public class Confirm extends AppCompatActivity {
         DisplayFees = (TextView)findViewById(R.id.DisplayFees);
         DisplayLocation = (TextView)findViewById(R.id.DisplayLocation);
 
-       Intent intent = getIntent();
+     /*  Intent intent = getIntent();
         if(intent != null) {
             DocName = intent.getExtras().getString("DocName", "");
             Toast.makeText(Confirm.this,"docName is"+DocName,Toast.LENGTH_SHORT).show();
 
 
-        }
+        }*/
 
         book = (Button)findViewById(R.id.book);
         mAuth = FirebaseAuth.getInstance();
 
         doctor = FirebaseDatabase.getInstance().getReference().child("Doctors").child("Physician").child("User1").child("Appointments");
-        database = FirebaseDatabase.getInstance().getReference().child("Doctors").child("NXY3b4rRV7ZThyMjJucChrzanVm1");
+        database = FirebaseDatabase.getInstance().getReference().child("Doctors").child("vQJ9IZt3yNfSylCA27UT6KrQKLX2");
 
        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String displayName  = dataSnapshot.child("name").getValue().toString();
-                String displayFees  = dataSnapshot.child("Fees").getValue().toString();
-                String displayLocation  = dataSnapshot.child("Location").getValue().toString();
+                String displayFees  = dataSnapshot.child("fees").getValue().toString();
+                String displayLocation  = dataSnapshot.child("location").getValue().toString();
 
                 DisplayName.setText(displayName);
                 DisplayFees.setText(displayFees);
@@ -76,32 +76,34 @@ public class Confirm extends AppCompatActivity {
 
             }
         });
-      /*  book.setOnClickListener(new View.OnClickListener() {
+       book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addPatient();
-                Intent book = new Intent(Confirm.this,UpcomingAppointment.class);
+                Intent book = new Intent(Confirm.this,UpComing.class);
                 startActivity(book);
             }
-        });*/
+        });
+
 
 
     }
     private void addPatient() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        String user_id = mAuth.getCurrentUser().getUid();
-        String name = mAuth.getCurrentUser().getDisplayName();
+        final String user_id = mAuth.getCurrentUser().getUid();
+                String name = mAuth.getCurrentUser().getDisplayName();
 
         if (user != null) {
              DatabaseReference Appointment = FirebaseDatabase.getInstance().getReference().child("Appointment").child(user_id);
+
             Map newPost = new HashMap();
             newPost.put("name", name);
             newPost.put("id", user_id);
-            newPost.put("docName", user_id);
+          //  newPost.put("docName", DocName);
 
 
-        doctor.setValue(newPost);
+        Appointment.setValue(newPost);
     }
         else{
             Toast.makeText(Confirm.this,"Please Login",Toast.LENGTH_SHORT).show();
