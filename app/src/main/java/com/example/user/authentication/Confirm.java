@@ -27,6 +27,7 @@ public class Confirm extends AppCompatActivity {
     private TextView DisplayFees;
     private TextView DisplayLocation;
    // String DocName = "";
+    
 
 
 
