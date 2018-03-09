@@ -28,7 +28,7 @@
             android:name=".AuthActivity"
             android:label="OTP Verification" />
         <activity
-            android:name=".Home"
+            android:name=".Option"
             android:label="Search">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
         <activity android:name=".Confirm" />
         <activity android:name=".Settings" />
         <activity android:name=".DoctorRegistration" />
-        <activity android:name=".Option" />
+        <activity android:name=".Home" />
         <activity android:name=".ViewAppointment" />
         <activity android:name=".MyProfile" />
         <activity android:name=".MyDoctors" />

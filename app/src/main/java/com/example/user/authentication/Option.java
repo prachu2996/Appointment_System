@@ -26,6 +26,7 @@ public class Option extends AppCompatActivity {
             public void onClick(View view) {
                 Intent doctor = new Intent(Option.this,DoctorRegistration.class);
                 startActivity(doctor);
+                finish();
             }
         });
 
@@ -34,6 +35,7 @@ public class Option extends AppCompatActivity {
             public void onClick(View view) {
                 Intent patient = new Intent(Option.this,MainActivity.class);
                 startActivity(patient);
+                finish();
             }
         });
     }

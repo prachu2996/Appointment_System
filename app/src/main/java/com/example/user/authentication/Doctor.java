@@ -28,13 +28,10 @@ import java.util.ArrayList;
 
 public class Doctor extends AppCompatActivity {
     // private ListView lst;
-
     // private ArrayList<String> username = new ArrayList<>();
-
     // private ArrayList<DoctorModel> doctorDetails = new ArrayList<>();
 
     private RecyclerView recyclerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,16 +53,25 @@ public class Doctor extends AppCompatActivity {
 
         ) {
             @Override
-            protected void populateViewHolder(Doctor.DocViewHolder viewHolder, DocDetail model, int position) {
+            protected void populateViewHolder(final Doctor.DocViewHolder viewHolder, final DocDetail model, int position) {
 
                 viewHolder.setName(model.getName());
                 viewHolder.setFees(model.getFees());
                 viewHolder.setTime(model.getTime());
+               // viewHolder.setAvg_Time(model.getAvg_time());
+
+                 final String id = model.getId();
+                viewHolder.setId(id);
+              // viewHolder.setId(model.getId());
+
                 //  viewHolder.setLocation(model.getLocation());
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                       // Toast.makeText(Doctor.this,"clicked",Toast.LENGTH_SHORT).show();
                         Intent doctorProfile = new Intent(Doctor.this,Confirm.class);
+                        doctorProfile.putExtra("docId" ,id);
+                      //  doctorProfile.putExtra("docName" ,id);
                         startActivity(doctorProfile);
                         finish();
                     }
@@ -83,6 +89,7 @@ public class Doctor extends AppCompatActivity {
         TextView Name;
         TextView Fees;
         TextView Time;
+        TextView Id;
         // TextView Location;
         private CardView card;
 
@@ -92,6 +99,7 @@ public class Doctor extends AppCompatActivity {
             Name = (TextView) itemView.findViewById(R.id.Name);
             Fees = (TextView) itemView.findViewById(R.id.Fees);
             Time = (TextView) itemView.findViewById(R.id.Time);
+            Id = (TextView) itemView.findViewById(R.id.Id);
             //  Location = (TextView) itemView.findViewById(R.id.Location);
 
 
@@ -113,16 +121,19 @@ public class Doctor extends AppCompatActivity {
             Time.setText("Time" + time);
         }
 
+        public void setId(String id) {
+            Id.setText("Id "+ id);
+        }
+
+     /*   public void setAvg_Time(String avg_time) {
+
+        }*/
+
       /*  public void setLocation(String location) {
             Time.setText(location);
         }*/
 
     }
-
-
-
-
-
 
 }
       //  lst = (ListView) findViewById(R.id.listview);
@@ -169,10 +180,6 @@ public class Doctor extends AppCompatActivity {
             }
         });*/
 
-
-
-
-
       /*  lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -181,9 +188,7 @@ public class Doctor extends AppCompatActivity {
 
                 Intent confirm2 = new Intent(Doctor.this, Confirm.class);
                confirm2.putExtra("DocName", username.get(position));
-
-
-                startActivity(confirm2);
+                 startActivity(confirm2);
 
             }
 

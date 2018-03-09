@@ -14,8 +14,13 @@ public class DocDetail {
     private String location;
     private String gender;
     private String fees;
+    private String id;
+    private String avg_time;
 
-    public DocDetail(String name, String email, String dob, String mob, String time, String location, String gender, String fees) {
+
+
+
+    public DocDetail(String name, String email, String dob, String mob, String time, String location, String gender, String fees, String id) {
         this.name = name;
         this.email = email;
         this.dob = dob;
@@ -24,7 +29,22 @@ public class DocDetail {
         this.location = location;
         this.gender = gender;
         this.fees = fees;
+
+        this.id = id;
+
+
     }
+
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getDob() {
         return dob;

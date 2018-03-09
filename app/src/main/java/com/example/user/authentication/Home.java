@@ -33,6 +33,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        physician = (Button) findViewById(R.id.physician);
         mDrawerlayout=(DrawerLayout)findViewById(R.id.DrawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerlayout,R.string.open,R.string.close);
         mDrawerlayout.addDrawerListener(mToggle);
@@ -43,32 +44,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         mAuth = FirebaseAuth.getInstance();
 
 
-
-        physician = (Button) findViewById(R.id.physician);
-
-
-
         physician.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent doctor = new Intent(Home.this,Doctor.class);
                 startActivity(doctor);
                 finish();
-              /* DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Doctor");
-                current_user_db.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        String value = dataSnapshot.getValue(String.class);
-                        Toast.makeText(Home.this,"You are under physician",Toast.LENGTH_SHORT).show();
-                       // textView2.setText(value);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });*/
-
 
             }
         });

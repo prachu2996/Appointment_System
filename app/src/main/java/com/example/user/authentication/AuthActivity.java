@@ -87,19 +87,13 @@ public class AuthActivity extends AppCompatActivity {
 
 
 
-
-        //  progressBar.setVisibility(View.INVISIBLE);
-
         verify_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { //when verify button is clicked
 
 
                 if(btnType==0) {
-                   /* verify_btn.setEnabled(false);
-                    contact_edit_text.setVisibility(View.INVISIBLE);
-                    code_edit_text.setVisibility(View.VISIBLE);
-                    Text.setText("Waiting for OTP");*/
+
                     progressBar.setVisibility(View.VISIBLE);
                     Text.setText("Waiting for OTP");
 

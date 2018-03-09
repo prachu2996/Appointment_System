@@ -117,14 +117,15 @@
         android:backgroundTint="?attr/colorPrimaryDark"
         android:text="Register"
         android:textColor="@android:color/white" />
+
     <Button
-        android:id="@+id/logout_btn"
+        android:id="@+id/skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/Register_button"
         android:layout_below="@+id/linearLayout"
         android:layout_marginTop="88dp"
-        android:text="LOGOUT"
+        android:text="Skip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

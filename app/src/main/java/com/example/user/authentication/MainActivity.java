@@ -26,15 +26,13 @@ import java.util.PriorityQueue;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private Button logout_btn;
+    private Button skip;
     private EditText Name;
     private EditText Email;
     private EditText Dob;
     private EditText Mob;
     private RadioGroup radioSexGroup;
     private RadioButton radioSexButton;
-
-
     private Button Register_button;
 
     @Override
@@ -43,28 +41,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-
-        logout_btn = (Button) findViewById(R.id.logout_btn);
+        skip = (Button) findViewById(R.id.logout_btn);
         Name = (EditText) findViewById(R.id.Name);
         Email = (EditText) findViewById(R.id.Email);
         Dob = (EditText) findViewById(R.id.Dob);
         Mob = (EditText) findViewById(R.id.Mob);
         Register_button = (Button) findViewById(R.id.Register_button);
         radioSexGroup = (RadioGroup) findViewById(R.id.radioSexGroup);
-
-
-
-       /* search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent search = new Intent(MainActivity.this,Home.class);
-                startActivity(search);
-            }
-        });*/
-
-
-
-
 
         Register_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
                                     Intent mainIntent = new Intent(MainActivity.this,Home.class);
                                     startActivity(mainIntent);
+                                    finish();
                                 }
-
                             }
                         }
 
@@ -116,31 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-
                 }
-
-
-
-
-
             }
         });
 
-
-
-
-
-
-
-
-
-        logout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                sendToAuth();
-            }
-        });
     }
 
     public void onRadioButtonClicked(View view){
@@ -149,21 +111,6 @@ public class MainActivity extends AppCompatActivity {
         radioSexButton = (RadioButton) findViewById(id);
 
     }
-
-
-
-
-    private void sendToAuth(){
-        Intent authIntent = new Intent(MainActivity.this,AuthActivity.class);
-       startActivity(authIntent);
-       finish();
-
-      //  Intent authIntent = new Intent(MainActivity.this,Main2Activity.class);
-      //  startActivity(authIntent);
-       // finish();
-
-    }
-
 
     @Override
     public void onStart() {
@@ -174,21 +121,8 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser==null){
            Intent authintent = new Intent(MainActivity.this,AuthActivity.class);
             startActivity(authintent);
-
-          //  Intent authintent = new Intent(MainActivity.this,Main2Activity.class);
-          //  startActivity(authintent);
-
             finish();
         }
 
-
-
-
     }
-
-
-
-
-
-
 }

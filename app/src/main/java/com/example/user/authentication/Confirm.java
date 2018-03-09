@@ -82,7 +82,26 @@ public class Confirm extends AppCompatActivity {
        book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 addPatient();
+                DatabaseReference avg_time = FirebaseDatabase.getInstance().getReference().child("Doctors").child(docId);
+                avg_time.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String average_time = dataSnapshot.child("avg_time").getValue().toString();
+                        Intent book = new Intent(Confirm.this,UpComing.class);
+                        book.putExtra("average_time",average_time);
+                        startActivity(book);
+                        finish();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
                 Intent book = new Intent(Confirm.this,UpComing.class);
                 startActivity(book);
                 finish();
@@ -97,7 +116,7 @@ public class Confirm extends AppCompatActivity {
        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
-        final String user_id = mAuth.getCurrentUser().getUid();
+        String user_id = mAuth.getCurrentUser().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("User").child(user_id);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -107,11 +126,13 @@ public class Confirm extends AppCompatActivity {
               final  String patientName  = dataSnapshot.child("name").getValue().toString();
                 if (user != null) {
                     //create a new node and add patient name under a child with id of a doctor
-                 final   DatabaseReference Appointment = FirebaseDatabase.getInstance().getReference().child("Appointment").child(user_id);
+                    String user_id = mAuth.getCurrentUser().getUid();
+                 final  DatabaseReference Appointment = FirebaseDatabase.getInstance().getReference().child("Appointment").child(user_id);
 
                             Map newPost = new HashMap();
                             newPost.put("docId",docId);
                             newPost.put("patient_name",patientName);
+                            newPost.put("app_num",null);
                             Appointment.setValue(newPost);
                 }
                 else{

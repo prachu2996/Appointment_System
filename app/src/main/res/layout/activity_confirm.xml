@@ -60,6 +60,22 @@
         app:layout_constraintTop_toBottomOf="@+id/DisplayFees"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/DisplayTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="85dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:text="Time"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DisplayLocation" />
+
     <Button
         android:id="@+id/book"
         android:layout_width="match_parent"
