@@ -29,6 +29,7 @@ public class DoctorRegistration extends AppCompatActivity {
     private EditText Time;
     private EditText Location;
     private EditText Mob;
+    private EditText Type;
     private RadioGroup radioSexGroup;
     private RadioButton radioSexButton;
     private Button Register_button;
@@ -47,6 +48,7 @@ public class DoctorRegistration extends AppCompatActivity {
         Time = (EditText) findViewById(R.id.Time);
         Dob = (EditText) findViewById(R.id.Dob);
         Mob = (EditText) findViewById(R.id.Mob);
+        Type = (EditText) findViewById(R.id.Type);
         Register_button = (Button) findViewById(R.id.Register_button);
         logout_btn = (Button) findViewById(R.id.logout_btn);
         radioSexGroup = (RadioGroup) findViewById(R.id.radioSexGroup);
@@ -64,6 +66,7 @@ public class DoctorRegistration extends AppCompatActivity {
                 final String fees = Fees.getText().toString();
                 final String location = Location.getText().toString();
                 final String time = Time.getText().toString();
+                final String type = Type.getText().toString();
 
                 final String gender = radioSexButton.getText().toString();
 
@@ -72,7 +75,7 @@ public class DoctorRegistration extends AppCompatActivity {
                     String user_id = mAuth.getCurrentUser().getUid();
                     DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Doctors").child(user_id);
                    DatabaseReference docNames = FirebaseDatabase.getInstance().getReference().child("DocNames").child(user_id).child("Name");
-
+                    DatabaseReference docType = FirebaseDatabase.getInstance().getReference().child(type).child(user_id).child("Name");
 
 
                     Map newPost = new HashMap();
@@ -84,6 +87,8 @@ public class DoctorRegistration extends AppCompatActivity {
                     newPost.put("fees", fees);
                     newPost.put("location", location);
                     newPost.put("time", time);
+                    newPost.put("id",user_id);
+                    newPost.put("type",type);
 
                     current_user_db.setValue(newPost);
 
@@ -91,7 +96,10 @@ public class DoctorRegistration extends AppCompatActivity {
                     newPost1.put("Name", name);
                     docNames.setValue(newPost1);*/
 
-                    docNames.setValue(name);
+                    docNames.setValue(name); // put the name of the doctor under DocNames which contains all the doctors
+
+                    docType.setValue(name);// put the name of the doctor under its type
+
                     Toast.makeText(DoctorRegistration.this, "You are successfully registered.", Toast.LENGTH_SHORT).show();
                     Intent viewAppointment = new Intent(DoctorRegistration.this,ViewAppointment.class);
                     startActivity(viewAppointment);
