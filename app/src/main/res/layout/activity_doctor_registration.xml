@@ -136,6 +136,14 @@
             android:hint="eg.2pm-5pm"
             android:inputType="phone"
             android:maxEms="10" />
+        <EditText
+            android:id="@+id/Type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:maxEms="10"
+            android:hint="PHYSICIAN"/>
     </LinearLayout>
 
     <Button
